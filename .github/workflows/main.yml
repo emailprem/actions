@@ -1,5 +1,5 @@
 name: Deploy
-on:
+on: pull-request
   push:
     branches: [main]
 
@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Setup and Run Tests
         run:  |
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'The triggering workflow succeeded deploying now'
-      - uses: actions/checkout@v3
-      - uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
         with:
           usedocker: true
